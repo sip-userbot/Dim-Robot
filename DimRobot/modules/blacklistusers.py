@@ -9,7 +9,7 @@ from DimRobot import (
     TIGERS,
     WOLVES,
     dispatcher,
-) 
+)
 from DimRobot.modules.helper_funcs.chat_status import dev_plus
 from DimRobot.modules.helper_funcs.extraction import (
     extract_user,

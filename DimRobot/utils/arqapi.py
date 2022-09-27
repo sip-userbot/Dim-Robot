@@ -4,7 +4,7 @@ from random import randint
 from time import time
 
 import aiohttp
-from DimRobot import aiohttpsession 
+from DimRobot import aiohttpsession
 from aiohttp import ClientSession
 
 from google_trans_new import google_translator
