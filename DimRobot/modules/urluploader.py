@@ -14,7 +14,6 @@ async def download_file(url, file_name, message, start_time, bot):
 
 
 async def download_coroutine(session, url, file_name, event, start, bot):
-
     CHUNK_SIZE = 1024 * 6  # 2341
     downloaded = 0
     display_message = ""
