@@ -142,7 +142,6 @@ def kang(update, context):
                 )
 
             except OSError as e:
-
                 print(e)
                 return
 
@@ -158,7 +157,7 @@ def kang(update, context):
                         packnum,
                         png_sticker=open("kangsticker.png", "rb"),
                     )
-                    
+
                 elif e.message == "Sticker_png_dimensions":
                     im.save(kangsticker, "PNG")
                     context.bot.add_sticker_to_set(
@@ -260,7 +259,7 @@ def kang(update, context):
                         packnum,
                         tgs_sticker=open("kangsticker.tgs", "rb"),
                     )
-                    
+
                 elif e.message == "Invalid sticker emojis":
                     msg.reply_text("Invalid emoji(s).")
                 elif e.message == "Internal Server Error: sticker set not found (500)":
@@ -347,7 +346,7 @@ def kang(update, context):
                     packnum,
                     png_sticker=open("kangsticker.png", "rb"),
                 )
-                
+
             elif e.message == "Sticker_png_dimensions":
                 im.save(kangsticker, "PNG")
                 context.bot.add_sticker_to_set(
@@ -573,6 +572,7 @@ def delsticker(update, context):
         update.effective_message.reply_text(
             "Please reply to sticker message to del sticker"
         )
+
 
 __mod_name__ = "Stickers"
 
