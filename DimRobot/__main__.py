@@ -97,13 +97,12 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="Get Help", callback_data="help_back"),
-        InlineKeyboardButton(
-            text="Try inline!​​", switch_inline_query_current_chat=""
-        ),
+        InlineKeyboardButton(text="Try inline!​​", switch_inline_query_current_chat=""),
     ],
     [
         InlineKeyboardButton(
-            text="➗ Add Dim To Your Group ➗", url=f"t.me/{bu}?startgroup=new"),
+            text="➗ Add Dim To Your Group ➗", url=f"t.me/{bu}?startgroup=new"
+        ),
     ],
 ]
 
@@ -198,7 +197,13 @@ def start(update: Update, context: CallbackContext):
                     update.effective_chat.id,
                     HELPABLE[mod].__help__,
                     InlineKeyboardMarkup(
-                        [[InlineKeyboardButton(text="Go Back", callback_data="help_back")]]
+                        [
+                            [
+                                InlineKeyboardButton(
+                                    text="Go Back", callback_data="help_back"
+                                )
+                            ]
+                        ]
                     ),
                 )
 
@@ -221,7 +226,8 @@ def start(update: Update, context: CallbackContext):
                     escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
-                    sql.num_chats()),                        
+                    sql.num_chats(),
+                ),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -230,8 +236,8 @@ def start(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_text(
             f"👋 Hi, Saya {dispatcher.bot.first_name}. Senang bertemu dengan Anda.",
-            parse_mode=ParseMode.HTML
-       )
+            parse_mode=ParseMode.HTML,
+        )
 
 
 def error_handler(update, context):
@@ -373,20 +379,27 @@ def Dim_about_callback(update, context):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="Admins", callback_data="Dim_admin"),
-                    InlineKeyboardButton(text="Notes", callback_data="Dim_notes"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Support", callback_data="Dim_support"),
-                    InlineKeyboardButton(text="Credits", callback_data="Dim_credit"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Source Code", url="https://github.com/sip-Userbot/DimRobot"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="Dim_back"),
-                 ]
+                    [
+                        InlineKeyboardButton(text="Admins", callback_data="Dim_admin"),
+                        InlineKeyboardButton(text="Notes", callback_data="Dim_notes"),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Support", callback_data="Dim_support"
+                        ),
+                        InlineKeyboardButton(
+                            text="Credits", callback_data="Dim_credit"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Source Code",
+                            url="https://github.com/sip-Userbot/DimRobot",
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(text="Go Back", callback_data="Dim_back"),
+                    ],
                 ]
             ),
         )
@@ -394,15 +407,16 @@ def Dim_about_callback(update, context):
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
+            PM_START_TEXT.format(
+                escape_markdown(first_name),
+                escape_markdown(uptime),
+                sql.num_users(),
+                sql.num_chats(),
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=False,
         )
 
     elif query.data == "Dim_admin":
@@ -440,18 +454,20 @@ def Dim_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="Support", url="t.me/suportsipuserbot"),
-                    InlineKeyboardButton(text="Updates", url="https://t.me/suportNande"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="Dim_"),
-                 
-                 ]
+                    [
+                        InlineKeyboardButton(
+                            text="Support", url="t.me/suportsipuserbot"
+                        ),
+                        InlineKeyboardButton(
+                            text="Updates", url="https://t.me/suportNande"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(text="Go Back", callback_data="Dim_"),
+                    ],
                 ]
             ),
         )
-
 
     elif query.data == "Dim_credit":
         query.message.edit_text(
@@ -460,32 +476,56 @@ def Dim_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="sip-Userbot", url="https://github.com/sip-Userbot"),
-                    InlineKeyboardButton(text="Nande-Userbot", url="https://github.com/sip-Userbot/Nande-Telethon"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="DimMusic", url="https://github.com/sip-Userbot/DimMusic"),
-                    InlineKeyboardButton(text="DimRobot", url="https://github.com/sip-Userbot/DimRobot"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Anime Kaizoku", url="https://github.com/animekaizoku"),
-                    InlineKeyboardButton(text="TheGhost Hunter", url="https://github.com/HuntingBots"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Inuka Asith", url="https://github.com/inukaasith"),
-                    InlineKeyboardButton(text="Noob-Kittu", url="https://github.com/noob-kittu"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Queen Arzoo", url="https://github.com/QueenArzoo"),
-                    InlineKeyboardButton(text="Paul Larsen", url="https://github.com/PaulSonOfLars"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="Dim_"),
-                 ]
+                    [
+                        InlineKeyboardButton(
+                            text="sip-Userbot", url="https://github.com/sip-Userbot"
+                        ),
+                        InlineKeyboardButton(
+                            text="Nande-Userbot",
+                            url="https://github.com/sip-Userbot/Nande-Telethon",
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="DimMusic",
+                            url="https://github.com/sip-Userbot/DimMusic",
+                        ),
+                        InlineKeyboardButton(
+                            text="DimRobot",
+                            url="https://github.com/sip-Userbot/DimRobot",
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Anime Kaizoku", url="https://github.com/animekaizoku"
+                        ),
+                        InlineKeyboardButton(
+                            text="TheGhost Hunter", url="https://github.com/HuntingBots"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Inuka Asith", url="https://github.com/inukaasith"
+                        ),
+                        InlineKeyboardButton(
+                            text="Noob-Kittu", url="https://github.com/noob-kittu"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Queen Arzoo", url="https://github.com/QueenArzoo"
+                        ),
+                        InlineKeyboardButton(
+                            text="Paul Larsen", url="https://github.com/PaulSonOfLars"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(text="Go Back", callback_data="Dim_"),
+                    ],
                 ]
             ),
         )
+
 
 def Source_about_callback(update, context):
     query = update.callback_query
@@ -505,26 +545,24 @@ def Source_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [
-                 [
-                    InlineKeyboardButton(text="Go Back", callback_data="Dim_")
-                 ]
-                ]
+                [[InlineKeyboardButton(text="Go Back", callback_data="Dim_")]]
             ),
         )
     elif query.data == "source_back":
         first_name = update.effective_user.first_name
         query.message.edit_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(buttons),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
+            PM_START_TEXT.format(
+                escape_markdown(first_name),
+                escape_markdown(uptime),
+                sql.num_users(),
+                sql.num_chats(),
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=False,
         )
+
 
 def get_help(update: Update, context: CallbackContext):
     chat = update.effective_chat  # type: Optional[Chat]
@@ -793,13 +831,12 @@ def migrate_chats(update: Update, context: CallbackContext):
 
 
 def main():
-
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.sendMessage(
-                f"@{SUPPORT_CHAT}", 
+                f"@{SUPPORT_CHAT}",
                 "✨ Hai, YinzRobot Berhasil Diaktifkan",
-                parse_mode=ParseMode.MARKDOWN
+                parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
             LOGGER.warning(

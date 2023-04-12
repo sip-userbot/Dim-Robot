@@ -30,6 +30,7 @@ client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
 db = client["LaylaRobot"]
 
+
 async def is_nsfw(event):
     lmao = event
     if not (
@@ -182,7 +183,6 @@ async def profanity(event):
         await event.reply("`I Should Be Admin To Do This!`")
         return
     if await is_admin(event, event.message.sender_id):
-
         input = event.pattern_match.group(1)
         chats = globalchat.find({})
         if not input:
@@ -314,5 +314,6 @@ async def del_profanity(event):
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
+
 
 __mod_name__ = "Shield"
