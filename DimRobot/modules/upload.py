@@ -25,7 +25,6 @@ def get_date_in_two_weeks():
 
 
 async def send_to_transfersh_async(file):
-
     size = os.path.getsize(file)
     size_of_file = humanbytes(size)
     final_date = get_date_in_two_weeks()

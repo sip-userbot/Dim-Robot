@@ -187,7 +187,6 @@ async def ParseSauce(googleurl):
 
 
 async def scam(results, lim):
-
     single = opener.open(results["similar_images"]).read()
     decoded = single.decode("utf-8")
 
@@ -209,7 +208,6 @@ async def scam(results, lim):
 
 @register(pattern="^/app (.*)")
 async def apk(e):
-
     try:
         app_name = e.pattern_match.group(1)
         remove_space = app_name.split(" ")

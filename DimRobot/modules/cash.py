@@ -7,10 +7,8 @@ from DimRobot import dispatcher, CASH_API_KEY
 
 
 def convert(bot: Bot, update: Update):
-
     args = update.effective_message.text.split(" ", 3)
     if len(args) > 1:
-
         orig_cur_amount = float(args[1])
 
         try:
